@@ -237,3 +237,64 @@ w3 = wektor.SumaWektorow(wektor2);
 
  }
 }
+
+polimorfizm - dziedziczenie przez get sety
+
+using System;
+
+
+
+class Liczby
+{
+private int cyfra = 3;
+public int Cyfra
+{
+    get {return cyfra;}
+    set{ cyfra = value;}
+    
+}}
+class Program{
+    
+
+ static void Main(string[] args)
+ {
+Liczby l = new Liczby();
+Console.WriteLine(l.Cyfra);
+}}
+
+godziny
+
+using System;
+
+
+
+class Godziny
+{
+    
+    private int godzina;
+    public int Godzina{
+        get{return godzina;}
+        set{
+            if(value>=0 && value<=24){
+            godzina=value;
+        }
+        else godzina=0;
+            
+        }
+    }
+    public string Info(){
+        return "jest godzina" + godzina;
+    }
+}
+class Program{
+  
+
+ static void Main(string[] args)
+ {
+     Godziny g = new Godziny();
+  g.Godzina=13;
+  Console.WriteLine(g.Info());
+ }
+}
+
+
