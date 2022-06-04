@@ -81,4 +81,159 @@ public class HelloWorld
       Console.WriteLine(pierwsza.info);
     }
 }
+using System;
 
+public class HelloWorld
+{
+    class Sumak{
+        public String info = "Klasa Test";
+        public int suma (int a, int b){
+           return a+b;  
+        }
+       
+    
+     public double suma (double a, double b){
+         return a+b;
+     }
+        
+    
+    public int suma (int a){
+         return a+a;
+    }
+       
+    }
+    public static void Main(string[] args)
+    {
+        Sumak suma1 = new Sumak();
+        suma1.suma(1);
+        Console.WriteLine (suma1.suma(1));
+        suma1.suma(1,2);
+        Console.WriteLine (suma1.suma(1,2));
+        suma1.suma(1.4,2.5);
+        Console.WriteLine (suma1.suma(1.4,2.5));
+        
+        
+    }
+}
+
+zamiana x i y przez ref
+
+using System;
+
+class Program
+{
+ static void Zamiana( ref int x,  ref int y)
+ {
+int zmienX=x;
+x=y;
+y=zmienX;
+ }
+ static void Main(string[] args)
+ {
+     int a=5;
+     int b=4;
+     
+     Console.WriteLine("Pierwotnie a to"+a+" a b to "+b);
+     Zamiana( ref a, ref b);
+     Console.WriteLine("Po zmianie a to"+a+" a b to "+b);
+
+ }
+}
+
+zamiana z autami
+
+using System;
+
+class Program
+{
+ static void Zamiana(  int x,   int y, out int x1, out int y1)
+ {
+x1=y;
+y1=x;
+ }
+ static void Main(string[] args)
+ {
+     int a=5;
+     int b=4;
+     int a1;
+     int b1;
+     
+     Console.WriteLine("Pierwotnie a to"+a+" a b to "+b);
+     Zamiana( a, b, out a1, out b1);
+     Console.WriteLine("Po zmianie a to"+a1+" a b to "+b1);
+
+ }
+}
+
+wektor klasa
+
+using System;
+
+class Wektor
+{
+    double x,y,z;
+    public Wektor(){
+        x=0;
+        y=0;
+        z=0;
+    }
+    public Wektor(double x, double y, double z){
+        this.x=x;
+        this.y=y;
+        this.z=z;
+    }
+    public void WczytajDane(){
+        Console.WriteLine("Podaj x");
+        x = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Podaj y");
+        y = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Podaj z");
+        z = Convert.ToDouble(Console.ReadLine());
+    }
+    public  void PokazDane(){
+        Console.WriteLine("Podane x to "+x);
+        Console.WriteLine("Podane y to "+y);
+        Console.WriteLine("Podane z to "+z);
+    }
+    public double Suma(){
+        return Math.Sqrt(x*x+y*y+z*z);
+    }
+    public bool Compare(Wektor w){
+        return x.Equals(w.x) && y.Equals(w.y) && z.Equals(w.z);
+    }
+    public bool isDifferent(Wektor w){
+        return !this.Compare(w);
+    }
+    public Wektor SumaWektorow(Wektor w)
+ {
+ Wektor p = new Wektor();
+ p.x = x + w.x; p.y = y + w.y; p.z = z + w.z;
+ return p;
+ }
+    
+
+ static void Main(string[] args)
+ {
+Wektor wektor = new Wektor();
+wektor.WczytajDane();
+wektor.PokazDane();
+wektor.Suma();
+Wektor wektor2 = new Wektor(1,2,3);
+wektor2.PokazDane();
+wektor2.Suma();
+Console.WriteLine("Wynik porowanania ");
+if(wektor.Compare(wektor2)){
+    Console.WriteLine("true");
+}
+else{
+ Console.WriteLine("false");   
+} ;
+Console.WriteLine("Wynik 2 porowanania ");
+if(wektor.isDifferent(wektor2)) {Console.WriteLine("true");}
+else {Console.WriteLine("false");};
+Wektor w3 = new Wektor();
+w3 = wektor.SumaWektorow(wektor2);
+
+
+ }
+}
